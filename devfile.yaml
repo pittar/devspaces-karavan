@@ -1,0 +1,8 @@
+schemaVersion: 2.1.0
+metadata:
+  name: demo-porject
+components:
+  - name: tools
+    container:
+      image: quay.io/devfile/universal-developer-image:ubi8-0e189d9
+      memoryLimit: 2Gi
