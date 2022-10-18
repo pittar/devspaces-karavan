@@ -1,3 +1,22 @@
-# Basic Repo to Demo Dev Spaces
+# Karavan in OpenShift Dev Spaces
 
-A basic repo to demo OpenShift Dev Spaces (including basic Devfile 2.0).
+This is a basic repo to demonstrate running Karavan in OpenShift Dev Spaces 3.1 using the (Tech Preview) VS Code IDE.
+
+1. Install OpenShift Dev Spaces Operator from OperatorHub
+2. Create a namespace for the instance of OpenShift Dev Spaces:
+   `oc adm new-project openshift-devspaces`
+3. Install OpenShift Dev Spaces into a new namespace (should be `openshift-devspaces`) - default settings are fine.
+4. Once Dev Spaces has been fully installed, determine the URL for Dev Spaces:
+   `oc get route devspaces -o jsonpath={.spec.host} -n openshift-devspaces`
+5. You can then launch a new "dev space" using this GitHub repo and the flag for the "insiders" IDE build (VS Code):
+
+```
+DSURL=$(oc get route devspaces -o jsonpath={.spec.host} -n openshift-devspaces)
+echo "https://$DSURL/#https://github.com/pittar/devspaces-karavan.git?che-editor=che-incubator/che-code/insiders"
+```
+
+**NOTE:** If you're using a cluster from RHPDS there will be **limit ranges** added to your dev spaces namespace that will be too small and keep your workspace from starting.  You can either delete the `limitrange` object from your namespace (it will be of the pattern `<useranem>-devspaces`) or you can pre-create your namespace with `oc adm` to skip the new project template and avoid the limitrange from the start.
+
+```
+oc adm new-project <username>-devspaces
+```
