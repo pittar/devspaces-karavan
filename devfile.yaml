@@ -4,5 +4,5 @@ metadata:
 components:
   - name: tools
     container:
-      image: quay.io/devfile/universal-developer-image:ubi8-latest
+      image: quay.io/pittar/devspaces31-jbang:test2
       memoryLimit: 3Gi
