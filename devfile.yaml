@@ -1,8 +1,16 @@
 schemaVersion: 2.1.0
 metadata:
-  name: demo-porject
+  name: demo-project
 components:
   - name: tools
     container:
       image: quay.io/devfile/universal-developer-image:ubi8-f5ffca8
       memoryLimit: 3Gi
+commands:
+  - id: install
+    exec:
+      component: tools
+      commandLine: "jbang app install camel@apache/camel"
+events:
+  postStart:
+    - install
