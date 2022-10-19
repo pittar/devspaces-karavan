@@ -1,6 +1,11 @@
 schemaVersion: 2.1.0
 metadata:
   name: demo-project
+projects:
+  - git:
+      remotes:
+        origin: 'https://github.com/pittar/devspaces-karavan.git'
+    name: devspaces-karavan
 components:
   - name: tools
     container:
