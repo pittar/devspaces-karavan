@@ -12,7 +12,7 @@ components:
       image: quay.io/devfile/universal-developer-image:ubi8-f5ffca8
       memoryRequest: 1Gi
       memoryLimit: 3Gi
-      cpuLimit: 1000m
+      cpuLimit: 2000m
       cpuRequest: 500m
   - name: postgresdb
     container:
@@ -31,7 +31,10 @@ components:
           name: postgresdb
           protocol: tcp
           targetPort: 5432
-      memoryLimit: 256G
+      memoryLimit: 256Mi
+      memoroyRequest: 128Mi
+      cpuLimit: 500m
+      cpuRequest: 200m
 commands:
   - id: install
     exec:
