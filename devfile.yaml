@@ -14,6 +14,24 @@ components:
       memoryLimit: 3Gi
       cpuLimit: 1000m
       cpuRequest: 500m
+  - name: postgresdb
+    container:
+      image: registry.redhat.io/rhel9/postgresql-13
+      env:
+        - name: POSTGRESQL_USER
+          value: pguser
+        - name: POSTGRESQL_PASSWORD
+          value: pguser
+        - name: POSTGRESQL_DATABASE
+          value: mydb
+        - name: POSTGRESQL_ADMIN_PASSWORD
+          value: pguser
+      endpoints:
+        - exposure: none
+          name: postgresdb
+          protocol: tcp
+          targetPort: 5432
+      memoryLimit: 256G
 commands:
   - id: install
     exec:
