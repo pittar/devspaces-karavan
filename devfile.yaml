@@ -10,10 +10,15 @@ components:
   - name: tools
     container:
       image: quay.io/devfile/universal-developer-image:ubi8-f5ffca8
+      memoryRequest: 1Gi
       memoryLimit: 3Gi
+      cpuLimit: 1000m
+      cpuRequest: 500m
 commands:
   - id: install
     exec:
       component: tools
-      commandLine: "jbang trust add -o --fresh --quiet https://raw.githubusercontent.com/apache/camel/camel-3.18.2/dsl/camel-jbang/camel-jbang-main/dist/CamelJBang.java && jbang -Dcamel.jbang.version=3.18.2 camel@apache/camel"
-
+      commandLine: "/home/user/.sdkman/candidates/jbang/current/bin/jbang trust add -o --fresh --quiet https://github.com/apache/camel/blob/HEAD/dsl/camel-jbang/camel-jbang-main/dist/CamelJBang.java"
+events:
+  postStart:
+    - install
