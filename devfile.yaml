@@ -32,7 +32,7 @@ components:
           protocol: tcp
           targetPort: 5432
       memoryLimit: 256Mi
-      memoroyRequest: 128Mi
+      memoryRequest: 128Mi
       cpuLimit: 500m
       cpuRequest: 200m
 commands:
