@@ -1,5 +1,6 @@
 {  
   "recommendations": [
-    "camel-karavan.karavan"  
+    "camel-karavan.karavan",
+    "redhat.java"
   ]  
 }
