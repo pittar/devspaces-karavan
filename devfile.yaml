@@ -9,7 +9,7 @@ projects:
 components:
   - name: tools
     container:
-      image: quay.io/devfile/universal-developer-image:ubi8-f5ffca8
+      image: quay.io/pittar/udi:3.4.0
       memoryRequest: 1Gi
       memoryLimit: 3Gi
       cpuLimit: 2000m
@@ -35,11 +35,3 @@ components:
       memoryRequest: 128Mi
       cpuLimit: 500m
       cpuRequest: 200m
-commands:
-  - id: install
-    exec:
-      component: tools
-      commandLine: "/home/user/.sdkman/candidates/jbang/current/bin/jbang trust add -o --fresh --quiet https://github.com/apache/camel/blob/HEAD/dsl/camel-jbang/camel-jbang-main/dist/CamelJBang.java"
-events:
-  postStart:
-    - install
