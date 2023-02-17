@@ -1,5 +1,7 @@
 # Karavan in OpenShift Dev Spaces 3.4+
 
+[Open in DevSpaces](https://devspaces.apps.cluster-f6dgz.f6dgz.sandbox381.opentlc.com/#https://github.com/pittar/devspaces-karavan.git)
+
 This is a basic repo to demonstrate running Karavan in OpenShift Dev Spaces 3.4+.
 
 As of OpenShift DevSpaces 3.3, VSCode is now the default IDE.  This makes things much simpler!
